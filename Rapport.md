@@ -205,7 +205,7 @@ docker-compose up --scale web=<count> --scale api=<count> -d
 We can see that 4 instances of our services have launched.
 If we wish to modify the number of instances, we only need to rerun the command with the new information.
 
-To test load balancing, simply make repeated requests to our service ( http://localhost for the web service or http://localhost/api for the API service).
+To test load balancing, simply make repeated requests to our service (http://localhost for the web service or http://localhost/api for the API service).
 
 ## Step 6 Load balancing with round-robin and sticky sessions
 To configure Traefik so that it uses persistent sessions for the instances of our dynamic server (API service), we need to use sticky sessions in our docker-compose.yml file.
