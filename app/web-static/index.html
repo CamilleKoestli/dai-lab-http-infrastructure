@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAI-Labo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script> async function getTasks() {
+        const reponse = await fetch("https://localhost/api/tasks");
+        const tasks = await reponse.json();
+        console.log(tasks);
+        document.getElementById("tasks").innerHTML = "";
+        for (task in tasks) {
+            var el = document.createElement("div");
+            el.innerHTML = tasks[task].description;
+            document.getElementById("tasks").appendChild(el);
+        }
+    }
+    setInterval(getTasks,3000);
+    getTasks();
+    </script>
+
+</head>
+
+<body class="font-sans antialiased">
+
+<div class="min-h-screen bg-gray-100">
+
+    <!-- Page Heading -->
+    <header class="bg-white shadow flex">
+        <div class="flex-1 max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex items-center">
+            <div>
+                <a href="/web-static/static">
+                    <button>Accueil</button>
+                </a>
+                <a href="/search">
+                    <button>Recherche</button>
+                </a>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <main>
+        <div class="py-4 sm:py-8">
+            <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+                <h1>Tasks</h1>
+                <div id="tasks"></div>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+
+</html>

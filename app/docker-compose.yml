@@ -10,6 +10,8 @@ services:
       - "traefik.http.routers.web.tls=true"
     deploy:
       replicas: 5
+    volumes :
+      - ./web-static:/usr/share/nginx/html
 
   api:
     build:

@@ -313,13 +313,21 @@ tls:
 1. Access traefik dashboard, you should be able to see a new entrypoint for https at port 443.
 1. Access the static web site and the API using https: `https://localhost` and `https://localhost/api`. You should be able to see the content of the web site and the API.
 
-## Optional Steps
-### Optional Step 1 : Management UI
+## Optional Step 1 : Management UI
 // todo add configuration steps 
-#### Verification Steps
+### Verification Steps
 1. Access the portainer UI at
 `https://localhost:9443/#!/2/docker/containers/`. You should be able to see the list of all current containers, their status as well as other information.
 1. Choose a container and try starting/stopping them and adding/removing instances. You should get a confirmation message (as shown in the image below) and the container should change status accordingly.
 ![portainer_ex](app/image/step_7/portainer_ex.png)
 
 ### Optional Step 2 : Integration API - static Web site
+### Configuration Details
+1. We wrote a JavaScript function `getTasks()` to fetch data from the API and put it inside a `<script>` tag in the HTML file.  This function uses the Fetch API to make an asynchronous GET request to the API endpoint `https://localhost/api/tasks`. It dynamically updates the content of an HTML element with the id `tasks` by creating new elements for each task fetched.
+1. We used `setInterval()` to call the `getTasks()` function every 3 seconds to update the content of the web page.
+
+### Verification Steps
+
+![update](app/image/step_9/web_update.png)
+We can see that the content of the web page is updated every 3 seconds. 
+Whenever less than 3 seconds pass between every request, we will get a 304 response code, meaning that the content of the page has not been modified since the last request. Otherwise, we will get a 200 response code followed by the length of the response body.
