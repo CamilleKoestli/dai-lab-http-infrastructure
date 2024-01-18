@@ -254,11 +254,9 @@ We momentarily add this line `        app.before(ctx -> System.out.println("Rece
 
 1. Round-robin for static servers
 While deploying multiple instances of the web server,
-//todo complete explanation
 ![round-robin](app/image/step_6/round-robin.png)
 
 2. Sticky sessions for dynamic servers
-//todo complete explanation
 ![sticky](app/image/step_6/sticky1.png)
 
 We verified this using bruno. We sent a first get request from which we got a cookie id:
@@ -314,7 +312,6 @@ tls:
 1. Access the static web site and the API using https: `https://localhost` and `https://localhost/api`. You should be able to see the content of the web site and the API.
 
 ## Optional Step 1 : Management UI
-// todo add configuration steps 
 ### Verification Steps
 1. Access the portainer UI at
 `https://localhost:9443/#!/2/docker/containers/`. You should be able to see the list of all current containers, their status as well as other information.
